@@ -20,12 +20,13 @@ module.exports = {
     ],
     script: [
       { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
-      { src: '/js/vue-social-sharing.min.js' }
+      { src: '~/static/js/vue-social-sharing.min.js' },
+      { src: 'https://unpkg.com/vuetify/dist/vuetify.js' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/iview/dist/styles/iview.css' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/iview/dist/iview.min.js' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/vuetify/dist/vuetify.min.css' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }
     ]
   },

@@ -1,9 +1,9 @@
 {
-  "name": "PyGoVue",
+  "name": "TiPGV",
   "version": "1.0.0",
-  "description": "PyGoVue Frontend",
+  "description": "TiPGV Frontend",
   "author": "Tadas Talaikis <talaikis.tadas@gmail.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -23,7 +23,6 @@
     "axios": "^0.16.2",
     "css-loader": "^0.28.7",
     "dotenv": "^4.0.0",
-    "iview": "^2.3.2",
     "lru-cache": "^4.1.1",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
