@@ -8,10 +8,10 @@ const searchPaged = '/' + process.env.SEARCH_KEYWORD + '/:catSlug/page/:page/'
 
 module.exports = {
   head: {
-    title: 'ElPGV',
+    title: 'TiPGV',
     manifest: {
       name: process.env.SITE_NAME,
-      short_name: 'ElPGV',
+      short_name: 'TiPGV',
       lang: 'en'
     },
     meta: [
@@ -33,10 +33,7 @@ module.exports = {
   plugins: [
     '~plugins/filters.js',
     '~plugins/axios.js',
-    '~plugins/iview.js'
-  ],
-  css: [
-    '@/assets/css/index.less'
+    '~plugins/vuetify.js'
   ],
   modules: [
     ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 }],

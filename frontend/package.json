@@ -32,7 +32,8 @@
     "vue-loader": "^13.0.4",
     "vue-ls": "^2.3.0",
     "vue-social-sharing": "^2.2.3",
-    "vue-style-loader": "^3.0.1"
+    "vue-style-loader": "^3.0.1",
+    "vuetify": "^0.15.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
