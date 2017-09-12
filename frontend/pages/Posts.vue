@@ -2,15 +2,15 @@
 <div>
   <ad-component></ad-component> 
   <v-layout row wrap v-for="(chunk, index) in chunkPosts" :key="'p-' + index" class="posts-row">
-    <v-flex xs6 sm4 :full-screen="$vuetify.breakpoint.xsOnly" v-for="(post, i) in chunk" :key="index + i">
+    <v-flex xs6 sm4 pa-2 :full-screen="$vuetify.breakpoint.xsOnly" v-for="(post, i) in chunk" :key="index + i">
       <v-card>
         <a :href="baseUrl + post.slug + '/'" v-if="post.image">
           <v-card-media :src="imgBaseUrl + post.image" height="200px">
           </v-card-media>
         </a>
-        <div class="posts-col">
+        <div class="pa-5">
           <v-card-title primary-title>
-            <h3 class="display-3">
+            <h3 class="display-2">
               <a :href="baseUrl + post.slug + '/'">{{ post.title }}</a>
             </h3>
           </v-card-title>
@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style>
-.posts-col {
+/*.posts-col {
   padding: 5em;
-}
+}*/
 </style>
