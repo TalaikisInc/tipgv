@@ -1,24 +1,31 @@
 <template>
-  <section>
-    <div class="layout" :class="spanLeft < 5 ? 'layout-hide-text' : ''">
-      <Row type="flex">
-        <header-component :spanLeft="spanLeft"></header-component>
-        <Col :span="spanRight">
-          <div class="layout-header">
-            <Button type="text" @click="toggleClick">
-              <Icon type="navicon" size="32"></Icon>
-            </Button>
-          </div>
-          <div class="layput-content">
-            <div class="layout-content-main">
-              <nuxt/>
-            </div>
-            <footer-component></footer-component>
-          </div>
-        </Col>
-      </Row>
+<v-app id="tipgv" toolbar footer>
+  <v-toolbar class="primary" dark>
+    <div class="layout-logo-center">
+      <a :href="baseUrl" :title="siteName">
+        <img src="~/assets/logo/logo.png" width="40" height="40" :alt="siteName">
+      </a>
     </div>
-  </section>
+    <v-toolbar-title>{{ siteName }}</v-toolbar-title>
+    <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    <header-component :spanLeft="spanLeft"></header-component>
+    <v-spacer></v-spacer>
+    <v-btn icon>
+      <v-icon>fa fa-facebook fw</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>fa fa-twitter fw</v-icon>
+    </v-btn>
+  </v-toolbar>
+  <main>
+      <v-container fluid>
+        <nuxt/>
+      </v-container>
+  </main>
+  <v-footer class="primary">
+    <footer-component></footer-component>
+  </v-footer>
+</v-app>
 </template>
 
 <script>
@@ -30,7 +37,9 @@ export default {
   data () {
     return {
       spanLeft: 5,
-      spanRight: 19
+      spanRight: 19,
+      siteName: process.env.SITE_NAME,
+      baseUrl: process.env.BASE_URL
     }
   },
   methods: {

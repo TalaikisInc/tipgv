@@ -32,9 +32,9 @@
       </div>
       <Col :span="20">
         <a :href="post.URL">
-          <Button type="error">
+          <v-btn error dark>
             Read more...
-          </Button>
+          </v-btn>
         </a>
       </Col>
     </Col>

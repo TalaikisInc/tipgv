@@ -25,7 +25,6 @@
     "dotenv": "^4.0.0",
     "lru-cache": "^4.1.1",
     "moment": "^2.18.1",
-    "node-sass": "^4.5.3",
     "nuxt": "^1.0.0-rc11",
     "sass-loader": "^6.0.6",
     "vue-html-loader": "^1.2.4",
@@ -51,7 +50,8 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5"
+    "node-sass": "^4.5.3",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
   }
 }

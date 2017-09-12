@@ -1,39 +1,59 @@
 <template>
-<Col :span="spanLeft" class="layout-menu-left">
-          <Menu name="1" width="auto" class="dark">
-            <div class="layout-logo-center">
-              <a :href="baseUrl" :title="title">
-                <img src="~/assets/logo/logo.png" :width="spanLeft < 5 ? '40px' : '90px'" :height="spanLeft < 5 ? '40px' : '90px'" :alt="title">
+<div>
+  <div class="text-xs-center">
+    <v-layout row wrap primary>
+    <v-menu open-on-hover offset-y>
+      <v-btn primary slot="activator">Categories</v-btn>
+      <v-list key="1">
+        <v-list-tile v-for="(cat, index) in categories" :key="'1-' + index" @click="">
+          <v-list-tile-action>
+            <v-icon>event</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <a :href="baseUrl + keyword + '/' + cat.slug + '/'">
+                {{ cat.title }} [{{ cat.post_count }}]
               </a>
-            </div>
-            <MenuItem :name="'1-' + index" v-for="(cat, index) in categories" :index="'1-' + index" :key="'1-' + index">
-              <span class="layout-text">
-                <a :href="baseUrl + keyword + '/' + cat.slug + '/'">
-                  <Icon type="ios-keypad" :size="iconSize" :color="iconColor"></Icon>
-                  {{ cat.title }} [{{ cat.post_count }}]
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <hr />
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>event</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <strong>
+                <a :href="baseUrl + catKey + '/1/'">
+                  All categories
                 </a>
-              </span>
-            </MenuItem>
-            <MenuItem name="40" class="divided">
-              <span class="layout-text" >
-                <strong>
-                  <a :href="baseUrl + catKey + '/1/'">
-                    <Icon type="ios-keypad" :size="iconSize" :color="iconColor"></Icon>
-                    All categories
-                  </a>
-                </strong>
-              </span>
-            </MenuItem>
-            <MenuItem name="41" class="divided">
-              <span class="layout-text">
+              </strong>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-menu>
+    <v-menu open-on-hover offset-y>
+      <v-btn primary slot="activator">Trending</v-btn>
+        <v-list key="2">
+          <v-list-tile key="2-0">
+            <v-list-tile-action>
+              <v-icon>event</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
                 <a :href="baseUrl + searchKey + '/keyword/'">
-                  <Icon type="ios-keypad" :size="iconSize" :color="iconColor"></Icon>
                   Keyword
                 </a>
-              </span>
-            </MenuItem>
-          </Menu>
-        </Col>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+    </v-menu>
+    </v-layout>
+  </div>
+</div>
 </template>
 
 <script>
@@ -50,7 +70,9 @@ export default {
       keyword: process.env.KEYWORD,
       catKey: process.env.CATEGORIES_KEY,
       searchKey: process.env.SEARCH_KEYWORD,
-      iconColor: '#EDE7F6'
+      twHandle: process.env.TWITTE_HANDLE,
+      fbHandle: process.env.FACEBOOK_HANDLE,
+      drawer: true
     }
   },
   methods: {
@@ -87,7 +109,7 @@ export default {
   background: transparent;
 }
 
-.dark {
+/*.dark {
   background: #cb60b3;
   background: -moz-linear-gradient(-45deg, #cb60b3 0%, #ad1283 50%, #de47ac 100%);
   background: -webkit-linear-gradient(-45deg, #cb60b3 0%,#ad1283 50%,#de47ac 100%);
@@ -117,5 +139,5 @@ a:hover {
   border-width: 1px;
   border-style: solid;
   border-color: #ff4cff #7986CB #7986CB #7986CB;
-}
+}*/
 </style>

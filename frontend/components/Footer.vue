@@ -1,22 +1,17 @@
 <template>
     <footer>
-        <Row type="flex">
-            <Col :span="3"></Col>
-            <Col :span="6" class="align-center">
-                <div>
-                    <a :href="baseUrl"><img class="img-responsive" src="~/assets/logo/logo.png" :alt="logoAlt"></a>
-                </div>
-                <div>
-                    <p><a :href="'https://twitter.com/' + twHandle"><i class="fa fa-twitter"></i></a>&nbsp;
-                    <a :href="'https://www.facebook.com/' + fbHandle"><i class="fa fa-facebook"></i></a></p>
-                    <address>
-                        <p>&copy; 2017 <a :href="baseUrl">{{ siteName }}</a> | 
-                        Developed by <a href="https://talaikis.com">Talaikis Inc.</a></p>
-                    </address>					
-                </div>
-            </Col>
-            <Col :span="3"></Col>
-        </Row>
+        <v-footer class="pa-3 primary">
+            <v-spacer></v-spacer>
+            <p class="text-lg-right text-xl-right">
+                <a :href="baseUrl">
+                    <img src="~/assets/logo/logo.png" :alt="siteName" width="40" height="40">
+                </a> | 
+                <a :href="'https://twitter.com/' + twHandle"><i class="fa fa-twitter"></i></a>&nbsp;
+                <a :href="'https://www.facebook.com/' + fbHandle"><i class="fa fa-facebook"></i></a></p> | 
+                &copy; {{ new Date().getFullYear() }} <a :href="baseUrl">{{ siteName }}</a> | 
+                Developed by <a href="https://talaikis.com">Talaikis Inc.</a>
+            </p>
+        </v-footer>
     </footer>
 </template>
 
@@ -26,7 +21,6 @@ export default {
   data () {
     return {
       baseUrl: process.env.BASE_URL,
-      logoAlt: process.env.SITE_NAME,
       twHandle: process.env.TWITTE_HANDLE,
       fbHandle: process.env.FACEBOOK_HANDLE,
       siteName: process.env.SITE_NAME
