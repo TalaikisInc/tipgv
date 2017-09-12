@@ -1,14 +1,14 @@
 <template>
-  <Row :span="20">
-    <Col :span="20">
+  <v-layout row wrap>
+    <v-flex xs12>
       <adsense
         :ad-client="adClient"
         :ad-slot="adSlot"
         ad-style="display: block"
         ad-format="auto">
       </adsense>
-    </Col>
-  </Row>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>

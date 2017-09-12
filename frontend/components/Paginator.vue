@@ -1,22 +1,18 @@
 <template>
-<Row :span="20">
-  <Col :span="3"></Col>
-  <Col :span="14" class="align-center">
-    <div class="pagination" v-if="paginatorType === 0">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + 'page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
-    <div class="pagination" v-if="paginatorType === 1">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + keyword + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
-    <div class="pagination" v-if="paginatorType === 2">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + catKey + '/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
-    <div class="pagination" v-if="paginatorType === 3">
-      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + searchKey + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-    </div>
-  </Col>
-  <Col :span="3"></Col>
-</Row>
+<div class="text-xs-center">
+  <div class="pagination" v-if="paginatorType === 0">
+    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + 'page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+  </div>
+  <div class="pagination" v-if="paginatorType === 1">
+    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + keyword + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+  </div>
+  <div class="pagination" v-if="paginatorType === 2">
+    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + catKey + '/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+  </div>
+  <div class="pagination" v-if="paginatorType === 3">
+    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + searchKey + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+  </div>
+</div>
 </template>
 
 <script>

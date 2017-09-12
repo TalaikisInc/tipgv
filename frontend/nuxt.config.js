@@ -32,7 +32,8 @@ module.exports = {
     ]
   },
   css: [
-    '@/assets/css/main.styl'
+    '@/assets/css/main.styl',
+    '@/assets/css/main.css'
   ],
   plugins: [
     '~plugins/filters.js',

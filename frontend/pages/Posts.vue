@@ -1,33 +1,45 @@
 <template>
-  <div>
-    <!-- <ad-component></ad-component> -->
-    <Row v-for="(chunk, index) in chunkPosts" :key="'p-' + index" class="posts-row">
-      <Col :span="2"></Col>
-      <Col :span="8" v-for="(post, i) in chunk" :key="index + i" class="posts-col">
-        <Card :bordered="false">
-          <div v-if="post.image">
-            <a :href="baseUrl + post.slug + '/'"><img :src="imgBaseUrl + post.image" :alt="post.title" class="img-fluid"></a>
-          </div>
+<div>
+  <ad-component></ad-component> 
+  <v-layout row wrap v-for="(chunk, index) in chunkPosts" :key="'p-' + index" class="posts-row">
+    <v-flex xs6 sm4 :full-screen="$vuetify.breakpoint.xsOnly" v-for="(post, i) in chunk" :key="index + i">
+      <v-card>
+        <a :href="baseUrl + post.slug + '/'" v-if="post.image">
+          <v-card-media :src="imgBaseUrl + post.image" height="200px">
+          </v-card-media>
+        </a>
+        <div class="posts-col">
+          <v-card-title primary-title>
+            <h3 class="display-3">
+              <a :href="baseUrl + post.slug + '/'">{{ post.title }}</a>
+            </h3>
+          </v-card-title>
           <div>
             <p><small>
-            <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">{{ post.category_id.Title }}</a>
+              <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">{{ post.category_id.Title }}</a>
               | {{ post.date | formatDate }}
             </small></p>
           </div>
           <div>
-            <h2><a :href="baseUrl + post.slug + '/'">{{ post.title }}</a></h2>
-            <p v-if="post.content">{{ post.content | truncate }}</p>
+            <p v-if="post.content" class="subheading">{{ post.content | truncate }}</p>
           </div>
-        </Card>
-      </Col>
-      <Col :span="2"></Col>
-      <Col :span="20" v-if="index === (3 || 7)">
-        <!-- <ad-component></ad-component> -->
-      </Col>
-    </Row>
-    <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" value="" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="posts[0].total_posts">
-    </paginator-component>
-  </div>
+          <v-card-actions>
+            <v-btn flat info>
+              <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">
+                Read more...
+              </a>
+            </v-btn>
+          </v-card-actions>
+        </div>
+      </v-card>
+    </v-flex>
+    <v-flex xs12 v-if="index === (3 || 7)">
+      <ad-component></ad-component>
+    </v-flex>
+  </v-layout>
+  <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" value="" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="posts[0].total_posts">
+  </paginator-component>
+</div>
 </template>
 
 <script>
@@ -80,26 +92,7 @@ export default {
 </script>
 
 <style>
-.img-fluid {
-  width: 100%;
-}
-
-.posts-row {
-  background: #eee;
-  padding: 2em;
-}
-
 .posts-col {
-  padding: 1em;
-}
-
-p {
-    font-size: 1.5em;
-    font-face: Roboto, Arial;
-}
-
-h2 {
-  font-size: 2.5em;
-  font-face: Roboto, Arial;
+  padding: 5em;
 }
 </style>
