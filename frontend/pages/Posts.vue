@@ -2,7 +2,7 @@
 <div>
   <ad-component></ad-component> 
   <v-layout row wrap v-for="(chunk, index) in chunkPosts" :key="'p-' + index" class="posts-row">
-    <v-flex xs6 sm4 pa-2 :full-screen="$vuetify.breakpoint.xsOnly" v-for="(post, i) in chunk" :key="index + i">
+    <v-flex xs12 sm8 md6 pa-1 v-for="(post, i) in chunk" :key="index + i">
       <v-card>
         <a :href="baseUrl + post.slug + '/'" v-if="post.image">
           <v-card-media :src="imgBaseUrl + post.image" height="200px">
@@ -10,7 +10,7 @@
         </a>
         <div class="pa-5">
           <v-card-title primary-title>
-            <h3 class="display-2">
+            <h3 class="display-1">
               <a :href="baseUrl + post.slug + '/'">{{ post.title }}</a>
             </h3>
           </v-card-title>
@@ -33,7 +33,7 @@
         </div>
       </v-card>
     </v-flex>
-    <v-flex xs12 v-if="index === (3 || 7)">
+    <v-flex xs12 sm12 md12 v-if="index === (3 || 7)">
       <ad-component></ad-component>
     </v-flex>
   </v-layout>

@@ -12,7 +12,7 @@ tipgv is a 3-part website boilerplate:
 
 ## Status
 
-In dev.
+Needs mobile improvements.
 
 ## UI(s)
 

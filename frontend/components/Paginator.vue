@@ -1,18 +1,20 @@
 <template>
-<div class="text-xs-center">
-  <div class="pagination" v-if="paginatorType === 0">
-    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + 'page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-  </div>
-  <div class="pagination" v-if="paginatorType === 1">
-    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + keyword + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-  </div>
-  <div class="pagination" v-if="paginatorType === 2">
-    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + catKey + '/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-  </div>
-  <div class="pagination" v-if="paginatorType === 3">
-    <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + searchKey + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
-  </div>
-</div>
+<v-layout column justify-center align-center>
+  <v-flex xs12 sm8 md6 pa-1 class="wrap">
+    <div class="pagination" v-if="paginatorType === 0">
+      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + 'page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+    </div>
+    <div class="pagination" v-if="paginatorType === 1">
+      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + keyword + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+    </div>
+    <div class="pagination" v-if="paginatorType === 2">
+      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + catKey + '/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+    </div>
+    <div class="pagination" v-if="paginatorType === 3">
+      <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + searchKey + '/' + value + '/page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
+    </div>
+  </v-flex>
+</v-layout>
 </template>
 
 <script>
@@ -88,9 +90,9 @@ export default {
 </script>
 
 <style>
-.pagination {
+/*.pagination {
   display: block;
-}
+}*/
 
 .pagination a {
   color: black;

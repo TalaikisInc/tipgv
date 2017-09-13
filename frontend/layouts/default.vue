@@ -1,5 +1,6 @@
 <template>
 <v-app id="tipgv" toolbar footer>
+  <v-container :fluid="true">
   <v-toolbar class="primary" dark>
     <div class="layout-logo-center">
       <a :href="baseUrl" :title="siteName">
@@ -24,6 +25,7 @@
   <v-footer class="primary">
     <footer-component></footer-component>
   </v-footer>
+  </v-container>
 </v-app>
 </template>
 

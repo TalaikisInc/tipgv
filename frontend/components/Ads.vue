@@ -1,6 +1,6 @@
 <template>
-  <v-layout row wrap>
-    <v-flex xs12>
+  <v-layout column justify-center align-center>
+    <v-flex xs12 sm12 md12 pa-2>
       <adsense
         :ad-client="adClient"
         :ad-slot="adSlot"
