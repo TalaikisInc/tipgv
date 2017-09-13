@@ -1,16 +1,9 @@
 <template>
 <div>
   <ad-component></ad-component>
-  <Row :span="20">
-    <Col :span="3"></Col>
-    <Col :span="14">
-      <h1>{{ post.Title }}</h1>
-    </Col>
-    <Col :span="3"></Col>
-  </Row>
-  <Row :span="20">
-    <Col :span="3"></Col>
-    <Col :span="14">
+  <h1>{{ post.Title }}</h1>
+  <v-layout>
+    <v-flex>
       <div v-if="post.Image">
         <a :href="baseUrl + post.Slug+'/'">
           <img class="img-fluid" :src="imgBaseUrl + post.Image" :alt="post.Title">
@@ -30,16 +23,15 @@
         <social-sharing :url="baseUrl + post.Slug + '/'" :title="post.Title">
         </social-sharing>
       </div>
-      <Col :span="20">
+      <div>
         <a :href="post.URL">
           <v-btn error dark>
             Read more...
           </v-btn>
         </a>
-      </Col>
-    </Col>
-    <Col :span="3"></Col>
-  </Row>
+      </div>
+    </v-flex>
+  </v-layout>
 </div>
 </template>
 

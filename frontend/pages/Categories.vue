@@ -1,21 +1,17 @@
 <template>
   <div>
     <ad-component></ad-component>
-    <div class="row">
-      <div class="col-sm-12">
-        <h1>Categories<span v-if="page > 0">, page {{ page }}</span></h1>
-      </div>
-    </div>
-    <div class="row" v-for="(chunk, index) in chunkCats">
-      <div class="col-sm-3 card bg-light mb3" style="max-width: 20rem;" v-for="cat in chunk">
-        <div  class="card-body">
-          <h2 class="card-title"><a :href="baseUrl + keyword + '/' + cat.slug + '/'">{{ cat.title }}</a> [{{ cat.post_count }}]</h2>
-        </div>
-      </div>
+    <h1>Categories<span v-if="page > 0">, page {{ page }}</span></h1>
+    <v-layout row v-for="(chunk, index) in chunkCats" :key="index">
+      <v-flex xs12 sm8 md6 pa-1 v-for="(cat, i) in chunk" :key="index + i">
+        <v-card>
+          <h2><a :href="baseUrl + keyword + '/' + cat.slug + '/'">{{ cat.title }}</a> [{{ cat.post_count }}]</h2>
+        </v-card>
+      </v-flex>
       <div v-if="index === (3 || 7)" class="col-12">
         <ad-component></ad-component>
       </div>
-    </div>
+    </v-layout>
     <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" value="" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="categories[0].total_cats">
     </paginator-component>
   </div>
