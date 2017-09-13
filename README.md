@@ -6,13 +6,15 @@ tipgv is a 3-part website boilerplate:
 * Golang as an API and
 * NuxtJs/ VueJs 2 as a frontend.
 
-## Demo(s) in play
-
-* ...
+![App](/example.png)
 
 ## Status
 
-Needs mobile improvements.
+Needs mobile improvements, etc.
+
+## Advice
+
+Vuietify would be bad for SEO (uses iframes).
 
 ## UI(s)
 
@@ -20,10 +22,6 @@ This version uses Vuetify UI (Material).
 
 * for Bootstrap 4 version see [pygovue](https://github.com/xenu256/pygovue)
 * for iView UI vertical [tipgv](https://github.com/xenu256/elpgv).
-
-## Advice
-
-Vuietify would be bad for SEO (uses iframes).
 
 ## Requirements
 

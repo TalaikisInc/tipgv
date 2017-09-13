@@ -33,7 +33,7 @@
         </div>
       </v-card>
     </v-flex>
-    <div xs12 sm12 md12 lg12 xl12 v-if="index === (3 || 7)">
+    <div v-if="index === (3 || 7)">
       <ad-component></ad-component>
     </div>
     </v-layout>

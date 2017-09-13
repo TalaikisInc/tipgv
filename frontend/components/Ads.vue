@@ -1,12 +1,12 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm12 md12 lg12 xl12>
-      <adsense
+  <v-layout justify-center align-center>
+    <v-flex>
+      <!-- <adsense
         :ad-client="adClient"
         :ad-slot="adSlot"
         ad-style="display: block"
         ad-format="auto">
-      </adsense>
+      </adsense> -->
     </v-flex>
   </v-layout>
 </template>
