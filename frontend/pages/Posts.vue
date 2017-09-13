@@ -1,6 +1,6 @@
 <template>
 <div>
-  <ad-component></ad-component> 
+  <ad-component></ad-component>
   <v-layout row wrap v-for="(chunk, index) in chunkPosts" :key="'p-' + index" class="posts-row">
     <v-flex xs12 sm8 md6 pa-1 v-for="(post, i) in chunk" :key="index + i">
       <v-card>
@@ -33,9 +33,10 @@
         </div>
       </v-card>
     </v-flex>
-    <v-flex xs12 sm12 md12 v-if="index === (3 || 7)">
+    <div xs12 sm12 md12 lg12 xl12 v-if="index === (3 || 7)">
       <ad-component></ad-component>
-    </v-flex>
+    </div>
+    </v-layout>
   </v-layout>
   <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" value="" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="posts[0].total_posts">
   </paginator-component>
@@ -92,7 +93,4 @@ export default {
 </script>
 
 <style>
-/*.posts-col {
-  padding: 5em;
-}*/
 </style>

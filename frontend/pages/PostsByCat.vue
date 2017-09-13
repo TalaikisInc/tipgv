@@ -1,33 +1,43 @@
 <template>
   <div>
-    <ad-component></ad-component>
-    <Row>
-      <Col :span="20">
-        <h1>{{ catTitle }}<span v-if="page > 0">, page {{ page }}</span></h1>
-      </Col>
-    </Row>
-    <Row v-for="(chunk, index) in chunkPosts" :key="'p-' + index" style="background:#eee;padding:20px">
-      <Col :span="3"></Col>
-      <Col :span="6" v-for="(post, i) in chunk" :key="index + i">
-        <Card :bordered="false">
-          <div v-if="post.image">
-            <a :href="baseUrl + post.slug + '/'"><img :src="imgBaseUrl + post.image" :alt="post.title" class="img-fluid"></a>
+    <ad-component></ad-component> 
+    <h1>{{ catTitle }}<span v-if="page > 0">, page {{ page }}</span></h1>
+    <v-layout row wrap v-for="(chunk, index) in chunkPosts" :key="'p-' + index" class="posts-row">
+      <v-flex xs12 sm8 md6 pa-1 v-for="(post, i) in chunk" :key="index + i">
+        <v-card>
+          <a :href="baseUrl + post.slug + '/'" v-if="post.image">
+            <v-card-media :src="imgBaseUrl + post.image" height="200px">
+            </v-card-media>
+          </a>
+          <div class="pa-5">
+            <v-card-title primary-title>
+              <h3 class="display-1">
+                <a :href="baseUrl + post.slug + '/'">{{ post.title }}</a>
+              </h3>
+            </v-card-title>
+            <div>
+              <p><small>
+                <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">{{ post.category_id.Title }}</a>
+                | {{ post.date | formatDate }}
+              </small></p>
+            </div>
+            <div>
+              <p v-if="post.content" class="subheading">{{ post.content | truncate }}</p>
+            </div>
+            <v-card-actions>
+              <v-btn flat info>
+                <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">
+                  Read more...
+                </a>
+              </v-btn>
+            </v-card-actions>
           </div>
-          <div>
-            <a :href="baseUrl + keyword + '/' + post.category_id.Slug + '/'">{{ post.category_id.Title }}</a>
-              | {{ post.date | formatDate }}
-          </div>
-          <div>
-            <h2><a :href="baseUrl + post.slug + '/'">{{ post.title }}</a></h2>
-            <p v-if="post.content">{{ post.content | truncate }}</p>
-          </div>
-        </Card>
-      </Col>
-      <Col :span="3"></Col>
-      <Col :span="20" v-if="index === (3 || 7)">
+        </v-card>
+      </v-flex>
+      <v-flex xs12 sm12 md12 lg12 xl12 v-if="index === (3 || 7)">
         <ad-component></ad-component>
-      </Col>
-    </Row>
+      </v-flex>
+    </v-layout>
     <paginator-component v-once :totalPages="calcPages" :paginatorType="paginatorType" value="" :currentPage="page" :itemsPerPage="itemsPerPage" :totalItems="posts[0].total_posts">
     </paginator-component>
   </div>

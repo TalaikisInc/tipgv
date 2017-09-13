@@ -21,6 +21,10 @@ This version uses Vuetify UI (Material).
 * for Bootstrap 4 version see [pygovue](https://github.com/xenu256/pygovue)
 * for iView UI vertical [tipgv](https://github.com/xenu256/elpgv).
 
+## Advice
+
+Vuietify would be bad for SEO (uses iframes).
+
 ## Requirements
 
 Python 3.6, Golang 1.8, Node 6.10, Postgres.
