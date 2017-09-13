@@ -1,6 +1,6 @@
 <template>
 <v-layout column justify-center align-center>
-  <v-flex xs10 sm7 md5 pa-1 class="wrap">
+  <v-flex xs10 sm7 md5 pa-1>
     <div class="pagination" v-if="paginatorType === 0">
       <a v-for="n in paginationRange" :class="activePage(n)" :href="baseUrl + 'page/' + n + '/'" @click="pageChanged(n)" class="page-link">{{ n }}</a>
     </div>

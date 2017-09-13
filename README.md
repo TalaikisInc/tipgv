@@ -10,7 +10,7 @@ tipgv is a 3-part website boilerplate:
 
 ## Status
 
-Needs mobile improvements, etc.
+Needs mobile improvements, etc. I don't intend to further give this project attention.
 
 ## Advice
 
