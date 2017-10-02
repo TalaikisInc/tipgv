@@ -22,6 +22,7 @@ This version uses Vuetify UI (Material).
 
 * for Bootstrap 4 version see [pygovue](https://github.com/xenu256/pygovue)
 * for iView UI vertical [tipgv](https://github.com/xenu256/elpgv).
+* fro Bulma [bulma_pfv](https://github.com/xenu256/bulma_pgv)
 
 ## Requirements
 
